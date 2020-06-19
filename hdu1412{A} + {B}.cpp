@@ -6,9 +6,8 @@ using namespace std;
 
 int main() {
 	int n, m, val;
-	set<int> res;
 	while (cin >> n >> m) {
-		res.clear();
+		set<int> res; 
 		for (int i = 1; i <= n + m; ++i) {
 			cin >> val;
 			res.insert(val);
@@ -25,3 +24,21 @@ int main() {
 	}
 	return 0;
 } 
+
+
+
+/*
+Sample Input
+1 2
+1
+2 3
+1 2
+1
+1 2
+ 
+
+Sample Output
+1 2 3
+1 2
+
+*/

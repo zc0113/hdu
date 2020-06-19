@@ -26,9 +26,8 @@ bool isright(int r, int c, int temp) {
 bool solvesudu() {
 	for (int i = 0; i < 9; ++i) {
 		for (int j = 0; j < 9; ++j) {
-			if (chess[i][j] != 0) 
-				continue; //0需要填入 
-			for (int k = 1; k <= 9; ++k) {
+			if (chess[i][j] != 0) continue;
+			for (int k = 1; k <= 9; ++k) {//0需要填入
 				chess[i][j] = k;
 				if (isright(i, j, k) && solvesudu()) {
 					if (flag) {
@@ -50,12 +49,12 @@ int main() {
 	string s;
 	int count = 0;
 	while (getline(cin, s)) {
-		if (s.size() == 0 ) continue;
+		if (s.empty()) continue;
 		vector<int> vec;
 		for (int i = 0; i < s.size(); ++i) {
 			if (s[i] == '?') {
 				vec.push_back(0);
-			} else if (s[i] > '0' && s[i] <= '9') {
+			} else if (isdigit(s[i])) {
 				vec.push_back(s[i] - '0');
 			}
 		}
