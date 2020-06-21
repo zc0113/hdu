@@ -1,14 +1,15 @@
 #include <iostream>
 #include <algorithm>
+#include <string.h>
 #define INF 0x3f3f3f3f
 
 using namespace std;
 
-int** mp = new int*[2000];
-int* book  = new int[2000];
-int* dis = new int[2000];
-int* d = new int[2000];
-int* s = new int[2000];
+int mp[2000][2000];
+int book[2000];
+int dis[2000];
+int d[2000];
+int s[2000];
 int T, S, D;
 
 void dijkstra(int n) {
@@ -34,9 +35,6 @@ void dijkstra(int n) {
 }
 
 int main() {
-	for (int i = 0; i < 2000; ++i) {
-		mp[i] = new int[2000];
-	}
 	while (cin >> T >> S >> D) {
 		int n = 0;
 		for (int i = 0; i < 2000; ++i) {
@@ -54,9 +52,7 @@ int main() {
 			n = max(max(n, a), b);
 			if (time < mp[a][b]) mp[b][a] = mp[a][b] = time;
 		}
-		for (int i = 0; i < 2000; ++i) {
-			book[i] = 0;
-		}
+		memset(book, 0, sizeof(book));
 		for (int i = 0; i < S; ++i) {
 			cin >> s[i];
 			mp[0][s[i]] = mp[s[i]][0] = 0;//相邻城市,这里假设起始城市为0点 
@@ -71,14 +67,6 @@ int main() {
 		}
 		cout << res << endl;
 	}
-	for (int i = 0; i < 2000; ++i) {
-		delete [] mp[i];
-	}
-	delete [] mp;
-	delete [] book;
-	delete [] d;
-	delete [] dis;
-	delete [] s;
 	return 0; 
 }
 

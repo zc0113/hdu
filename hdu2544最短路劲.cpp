@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 #define INF 0x3f3f3f3f
 
 using namespace std;
@@ -42,9 +43,7 @@ int main() {
 				}
 			}
 		}
-		for (int i = 0; i < 101; ++i) {
-			book[i] = 0;
-		}
+		memset(book, 0, sizeof(book));
 		int u, v, w;
 		for (int i = 0; i < m; ++i) {//读入点之间路径值 
 			cin >> u >> v >> w;
