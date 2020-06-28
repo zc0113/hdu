@@ -15,7 +15,7 @@ int main() {
 	while (cin >> n >> m && (n || m)) {
 		for (int i = 1; i <= m; ++i) {
 			cin >> cost[i] >> p[i];
-			p[i] = 1 - p[i];//得不到的概率 
+			p[i] = 1 - p[i];//寰椾笉鍒扮殑姒傜巼 
 		}
 		for (int i = 0; i <= n; ++i) {
 			dp[i] = 1;
