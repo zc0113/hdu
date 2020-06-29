@@ -1,6 +1,7 @@
 #include <iostream>
-#define INF 0x7fffffff
-#define min(a, b) ((a) < (b) ? (a) : (b))
+#include <algorithm>
+#include <string.h>
+#define INF 0x3f3f3f3f
 
 using namespace std;
 
@@ -20,10 +21,8 @@ int main() {
 		for (int i = 1; i <= n; ++i) {//读入硬币价值和重量 
 			cin >> p[i] >> w[i];
 		}
+		memset(dp, INF, sizeof(dp));
 		dp[0] = 0;
-		for (int i = 1; i <= m; ++i) {//初始化 
-			dp[i] = INF;
-		}
 		for (int i = 1; i <= n; ++i) {
 			for (int j = w[i]; j <= m; j++) {
 				if (dp[j - w[i]] != INF) {

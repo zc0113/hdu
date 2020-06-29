@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdio.h>
 #include <algorithm>
-#include <string.h>
 #define MAX_SIZE 10010
 
 using namespace std;
