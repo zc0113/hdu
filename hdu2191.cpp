@@ -18,7 +18,7 @@ int main () {
 		int idx = 0;
 		for (int i = 0; i < m; ++i) {
 			cin >> pp >> hh >> c;
-			while (c--) {//×ª»»³É¶à¸öÁ¸Ê³ 
+			while (c--) {//è½¬æ¢æˆå¤šä¸ªç²®é£Ÿ 
 				p[idx] = pp;
 				h[idx] = hh;
 				idx++;
