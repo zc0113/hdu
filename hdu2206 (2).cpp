@@ -42,9 +42,11 @@ bool isHe(char* a) {
     }
     if (j != 3)//IP中的总点数不为3，IP不合法
         return false;
-    for(int i = 0; i < 4; i++)
-        if(b[i] < 0 || b[i] > 255)
-        return false;
+    for (int i = 0; i < 4; i++) {
+        if (b[i] < 0 || b[i] > 255) {
+        	return false;
+		}
+	}
     return true;
 }
 
@@ -52,12 +54,12 @@ int main()
 {
 
     char s[105];
-    while(gets(s))///这里要用gets读入字符串，这样才能吞空格
-    {
-        if(isHe(s))
-            printf("YES\n");
-        else
-            printf("NO\n");
+    while (gets(s)) {//这里要用gets读入字符串，这样才能吞空格
+        if (isHe(s)) {
+			cout << "YES" << endl;
+		} else {
+			cout << "NO" << endl;
+		}
 
     }
     return 0;
