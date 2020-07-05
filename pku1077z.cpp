@@ -26,13 +26,18 @@ struct node {
 		f = fa;
 		c = C;
 	}
-	
-	bool Cmp() {
-		for (int i = 0; i < 8; ++i) {
-			if (a[i] != i + 1) return false;
+	bool operator==(int* t) {
+		for (int i = 0; i < 9; ++i) {
+			if (a[i] != t[i]) return false;
 		}
 		return true;
 	}
+	//bool Cmp() {
+	//	for (int i = 0; i < 8; ++i) {
+	//		if (a[i] != i + 1) return false;
+	//	}
+	//	return true;
+//	}
 	
 	int Hash_val() {
 		int ans = 0, m = 1;
@@ -49,12 +54,12 @@ struct node {
 }S, now, to;
 
 node Q[10000000];
-int front = 0, rear = 0;
-int dir[4] = {-3, 3, -1, 1};
-bool used[362889];
 
 int Bfs() {
-	front = rear = 0;
+	int front = 0, rear = 0;
+	int dir[4] = {-3, 3, -1, 1};
+	bool used[362889];
+	int t[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
 	Q[rear++] = S;
 	for (int i = 0; i < 362889; ++i) {
 		used[i] = false;
@@ -62,7 +67,8 @@ int Bfs() {
 	used[S.Hash_val()] = true;
 	while (front != rear) {
 		now = Q[front++];
-		if (now.Cmp()) return front - 1;
+		if (now == t) return front - 1;
+		//if (now.Cmp()) return front - 1;
 		int i;
 		for (i = 0; i < 2; ++i) {
 			int p = now.index + dir[i];

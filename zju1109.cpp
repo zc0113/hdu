@@ -2,21 +2,22 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#define MAX_SIZE 25
+#include <cstdlib>
+#define MAX_SIZE 30
 
 using namespace std;
 
-map<string, string> mymap;
-string key, value;
-
 int main() {
+	//string key, val;
 	char English[MAX_SIZE], Mouse[MAX_SIZE], s[MAX_SIZE];
+	map<string, string> mymap;
 	while (gets(s)) {
 		if (!strlen(s)) break;
-		sscanf(s, "%s %s", English, Mouse);
-		key = Mouse;
-		value = English;
-		mymap[key] = value;
+		sscanf(s, "%s%s", English, Mouse);
+		//key = Mouse;
+		//val = English;
+		//mymap[key] = val;
+		mymap[Mouse] = English;
 		//cout << "my = " << mymap[key];
 	}
 	while (gets(s)) {
