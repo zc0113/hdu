@@ -10,11 +10,11 @@ int visit[MAX_SIZE];//标记与地鼠相连的洞
 int link[MAX_SIZE];//保存跑进洞的地鼠的编号 
 int gn = 0, gm = 0;
 
-typedef struct node{
+typedef struct point{
 	double x, y;//x,y坐标 
-}node;
+}point;
 
-double Dis(node g, node h) {//计算两点距离 
+double Dis(point &g, point &h) {//计算两点距离 
 	return sqrt((g.x - h.x) * (g.x - h.x) + (g.y - h.y) * (g.y - h.y));
 }
 
@@ -43,7 +43,7 @@ int Arrive() {
 int main() {
 	int n, m;
 	double t = 0.0, v = 0.0;
-	node gopher[MAX_SIZE], hole[MAX_SIZE];
+	point gopher[MAX_SIZE], hole[MAX_SIZE];
 	while (cin >> n >> m >> t >> v) {
 		memset(map, 0, sizeof(map));
 		memset(visit, 0, sizeof(visit));
