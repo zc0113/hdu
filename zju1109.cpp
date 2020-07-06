@@ -9,15 +9,15 @@ using namespace std;
 
 int main() {
 	//string key, val;
-	char English[MAX_SIZE], Mouse[MAX_SIZE], s[MAX_SIZE];
+	char english[MAX_SIZE], mouse[MAX_SIZE], s[MAX_SIZE];
 	map<string, string> mymap;
 	while (gets(s)) {
 		if (!strlen(s)) break;
-		sscanf(s, "%s%s", English, Mouse);
+		sscanf(s, "%s%s", english, mouse);
 		//key = Mouse;
 		//val = English;
 		//mymap[key] = val;
-		mymap[Mouse] = English;
+		mymap[mouse] = english;
 		//cout << "my = " << mymap[key];
 	}
 	while (gets(s)) {
