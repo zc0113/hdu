@@ -1,26 +1,25 @@
-#include <cstdio>
 #include <iostream>
- 
+#include <cstdio>
+#define MAX_SIZE 500005
+
 using namespace std;
 
-const int N = 500005;
- 
+int a[MAX_SIZE], b[MAX_SIZE];
 long long ans;
-int a[N], b[N];
- 
+
 void MergeSort(int left, int right) {
-	int i, j, k, mid;
-    if (left < right) {
-        mid = (left + right) >> 1;
-        MergeSort(left, mid);
-        MergeSort(mid + 1, right);
-        k = left;
-        for (i = left, j = mid + 1; i <= mid && j <= right;) {
-            if (a[i] > a[j]) {
+	int i, j , k, mid;
+	if (left < right) {
+		mid = (left + right) >> 1;
+		MergeSort(left, mid);
+		MergeSort(mid + 1, right);
+		k = left;
+		for (i = left, j = mid + 1; i <= mid && j <= right; ) {
+			if (a[i] > a[j]) {
 				b[k++] = a[j++];
-				ans += mid - i + 1;//ƒÊ–Ú∂‘ 
-        	} else {
-        		b[k++] = a[i++];
+				ans += mid - i + 1;//ÈÄÜÂ∫èÂØπ 
+			} else {
+				b[k++] = a[i++];
 			}
 		}
 		while (i <= mid) {
@@ -29,24 +28,24 @@ void MergeSort(int left, int right) {
 		while (j <= right) {
 			b[k++] = a[j++];
 		}
-        for (i = left; i <= right; ++i) {
-        	a[i] = b[i];
+		for (i = left; i <= right; ++i) {
+			a[i] = b[i];
 		}
-    }
+	}
 }
- 
+
 int main() {
-    int n;
-    while (cin >> n && n) {
-        for (int i = 1; i <= n; ++i) {
-        	cin >> a[i];
+	int n;
+	while (cin >> n && n) {
+		for (int i = 1; i <= n; ++i) {
+			cin >> a[i];
 		}
-        ans = 0;
-        MergeSort(1, n);
-        cout << ans << endl;
-    }
-    return 0;
-} 
+		ans = 0;
+		MergeSort(1, n);
+		cout << ans << endl;
+	}
+	return 0;
+}
 /*
 Sample Input
 
